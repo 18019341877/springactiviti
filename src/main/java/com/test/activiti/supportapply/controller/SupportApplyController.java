@@ -3,10 +3,7 @@ package com.test.activiti.supportapply.controller;
 import com.test.activiti.activiti.config.Cfg_Activiti;
 import org.activiti.bpmn.model.BpmnModel;
 import org.activiti.bpmn.model.FlowElement;
-import org.activiti.engine.ProcessEngine;
-import org.activiti.engine.ProcessEngineConfiguration;
-import org.activiti.engine.RepositoryService;
-import org.activiti.engine.RuntimeService;
+import org.activiti.engine.*;
 import org.activiti.engine.repository.ProcessDefinition;
 import org.activiti.engine.repository.ProcessDefinitionQuery;
 import org.activiti.engine.runtime.ProcessInstance;
@@ -53,8 +50,9 @@ public class SupportApplyController {
         }
 
         String processDefinitionKey = "process";
+        String applyid = "11111";
         //开启流程，得到流程实例对象
-        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(processDefinitionKey);
+        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(processDefinitionKey,applyid);
         System.out.println(processInstance);
 
 
