@@ -6,7 +6,7 @@ security:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/sup-activiti?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&useSSL=true
+    url: jdbc:mysql://localhost:3306/sup-activiti?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
     username: root
     password: wonders,1
   thymeleaf:
