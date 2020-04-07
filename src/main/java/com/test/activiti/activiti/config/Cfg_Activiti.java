@@ -15,7 +15,6 @@ import javax.sql.DataSource;
 /**
  * @Classname Cfg_Activiti
  * @Description activiti工作流配置
- * @Author xiedong
  * @Date 2019/10/21 11:31
  * @Version 1.0
  **/

@@ -7,7 +7,6 @@ import org.springframework.context.annotation.ComponentScan;
 /**
  * @Classname DemoApplication
  * @Description TODO
- * @Author xiedong
  * @Date 2019/10/21 11:31
  * @Version 1.0
  **/

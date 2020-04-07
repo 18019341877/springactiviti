@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.test.activiti</groupId>
-    <artifactId>springboot-activiti-demo</artifactId>
+    <groupId>com.springactiviti</groupId>
+    <artifactId>springactiviti</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
@@ -78,6 +78,11 @@
             <artifactId>activiti-diagram-rest</artifactId>
             <version>${activiti.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.60</version>
+        </dependency>
         <!--activiti end-->
     </dependencies>
 
@@ -86,6 +91,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
             </plugin>
         </plugins>
     </build>
