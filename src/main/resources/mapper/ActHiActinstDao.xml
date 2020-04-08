@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springactiviti.domain.dao.ActHiActinstDao">
+
+    <resultMap type="com.springactiviti.domain.entity.ActHiActinst" id="ActHiActinstMap">
+        <result property="id_" column="ID_" jdbcType="VARCHAR"/>
+        <result property="procDefId_" column="PROC_DEF_ID_" jdbcType="VARCHAR"/>
+        <result property="procInstId_" column="PROC_INST_ID_" jdbcType="VARCHAR"/>
+        <result property="executionId_" column="EXECUTION_ID_" jdbcType="VARCHAR"/>
+        <result property="actId_" column="ACT_ID_" jdbcType="VARCHAR"/>
+        <result property="taskId_" column="TASK_ID_" jdbcType="VARCHAR"/>
+        <result property="callProcInstId_" column="CALL_PROC_INST_ID_" jdbcType="VARCHAR"/>
+        <result property="actName_" column="ACT_NAME_" jdbcType="VARCHAR"/>
+        <result property="actType_" column="ACT_TYPE_" jdbcType="VARCHAR"/>
+        <result property="assignee_" column="ASSIGNEE_" jdbcType="VARCHAR"/>
+        <result property="startTime_" column="START_TIME_" jdbcType="OTHER"/>
+        <result property="endTime_" column="END_TIME_" jdbcType="OTHER"/>
+        <result property="duration_" column="DURATION_" jdbcType="INTEGER"/>
+        <result property="tenantId_" column="TENANT_ID_" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="ActHiActinstMap">
+        select
+          ID_, PROC_DEF_ID_, PROC_INST_ID_, EXECUTION_ID_, ACT_ID_, TASK_ID_, CALL_PROC_INST_ID_, ACT_NAME_, ACT_TYPE_, ASSIGNEE_, START_TIME_, END_TIME_, DURATION_, TENANT_ID_
+        from ACT_HI_ACTINST
+        where ID_ = #{id_}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="ActHiActinstMap">
+        select
+          ID_, PROC_DEF_ID_, PROC_INST_ID_, EXECUTION_ID_, ACT_ID_, TASK_ID_, CALL_PROC_INST_ID_, ACT_NAME_, ACT_TYPE_, ASSIGNEE_, START_TIME_, END_TIME_, DURATION_, TENANT_ID_
+        from sup-activiti.ACT_HI_ACTINST
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="ActHiActinstMap">
+        select
+          ID_, PROC_DEF_ID_, PROC_INST_ID_, EXECUTION_ID_, ACT_ID_, TASK_ID_, CALL_PROC_INST_ID_, ACT_NAME_, ACT_TYPE_, ASSIGNEE_, START_TIME_, END_TIME_, DURATION_, TENANT_ID_
+        from sup-activiti.ACT_HI_ACTINST
+        <where>
+            <if test="id_ != null and id_ != ''">
+                and ID_ = #{id_}
+            </if>
+            <if test="procDefId_ != null and procDefId_ != ''">
+                and PROC_DEF_ID_ = #{procDefId_}
+            </if>
+            <if test="procInstId_ != null and procInstId_ != ''">
+                and PROC_INST_ID_ = #{procInstId_}
+            </if>
+            <if test="executionId_ != null and executionId_ != ''">
+                and EXECUTION_ID_ = #{executionId_}
+            </if>
+            <if test="actId_ != null and actId_ != ''">
+                and ACT_ID_ = #{actId_}
+            </if>
+            <if test="taskId_ != null and taskId_ != ''">
+                and TASK_ID_ = #{taskId_}
+            </if>
+            <if test="callProcInstId_ != null and callProcInstId_ != ''">
+                and CALL_PROC_INST_ID_ = #{callProcInstId_}
+            </if>
+            <if test="actName_ != null and actName_ != ''">
+                and ACT_NAME_ = #{actName_}
+            </if>
+            <if test="actType_ != null and actType_ != ''">
+                and ACT_TYPE_ = #{actType_}
+            </if>
+            <if test="assignee_ != null and assignee_ != ''">
+                and ASSIGNEE_ = #{assignee_}
+            </if>
+            <if test="startTime_ != null">
+                and START_TIME_ = #{startTime_}
+            </if>
+            <if test="endTime_ != null">
+                and END_TIME_ = #{endTime_}
+            </if>
+            <if test="duration_ != null">
+                and DURATION_ = #{duration_}
+            </if>
+            <if test="tenantId_ != null and tenantId_ != ''">
+                and TENANT_ID_ = #{tenantId_}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id_" useGeneratedKeys="true">
+        insert into sup-activiti.ACT_HI_ACTINST(PROC_DEF_ID_, PROC_INST_ID_, EXECUTION_ID_, ACT_ID_, TASK_ID_, CALL_PROC_INST_ID_, ACT_NAME_, ACT_TYPE_, ASSIGNEE_, START_TIME_, END_TIME_, DURATION_, TENANT_ID_)
+        values (#{procDefId_}, #{procInstId_}, #{executionId_}, #{actId_}, #{taskId_}, #{callProcInstId_}, #{actName_}, #{actType_}, #{assignee_}, #{startTime_}, #{endTime_}, #{duration_}, #{tenantId_})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update sup-activiti.ACT_HI_ACTINST
+        <set>
+            <if test="procDefId_ != null and procDefId_ != ''">
+                PROC_DEF_ID_ = #{procDefId_},
+            </if>
+            <if test="procInstId_ != null and procInstId_ != ''">
+                PROC_INST_ID_ = #{procInstId_},
+            </if>
+            <if test="executionId_ != null and executionId_ != ''">
+                EXECUTION_ID_ = #{executionId_},
+            </if>
+            <if test="actId_ != null and actId_ != ''">
+                ACT_ID_ = #{actId_},
+            </if>
+            <if test="taskId_ != null and taskId_ != ''">
+                TASK_ID_ = #{taskId_},
+            </if>
+            <if test="callProcInstId_ != null and callProcInstId_ != ''">
+                CALL_PROC_INST_ID_ = #{callProcInstId_},
+            </if>
+            <if test="actName_ != null and actName_ != ''">
+                ACT_NAME_ = #{actName_},
+            </if>
+            <if test="actType_ != null and actType_ != ''">
+                ACT_TYPE_ = #{actType_},
+            </if>
+            <if test="assignee_ != null and assignee_ != ''">
+                ASSIGNEE_ = #{assignee_},
+            </if>
+            <if test="startTime_ != null">
+                START_TIME_ = #{startTime_},
+            </if>
+            <if test="endTime_ != null">
+                END_TIME_ = #{endTime_},
+            </if>
+            <if test="duration_ != null">
+                DURATION_ = #{duration_},
+            </if>
+            <if test="tenantId_ != null and tenantId_ != ''">
+                TENANT_ID_ = #{tenantId_},
+            </if>
+        </set>
+        where ID_ = #{id_}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from sup-activiti.ACT_HI_ACTINST where ID_ = #{id_}
+    </delete>
+
+</mapper>

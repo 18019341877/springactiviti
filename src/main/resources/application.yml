@@ -9,6 +9,7 @@ spring:
     url: jdbc:mysql://localhost:3306/sup-activiti?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
     username: root
     password: wonders,1
+    driver-class-name: com.mysql.jdbc.Driver
   thymeleaf:
     mode: LEGACYHTML5
     cache: false
@@ -17,6 +18,10 @@ spring:
       enabled: false  #设置开启热部署
   freemarker:
     cache: false    #页面不加载缓存，修改即时生效
+
+mybatis:
+  mapper-locations: classpath:/mapper/*Dao.xml
+  type-aliases-package: com.springactiviti.domain.entity
 
 logging:
   level:
