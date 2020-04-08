@@ -1,14 +1,11 @@
-package com.test.activiti.activiti.config;
+package com.springactiviti.activiti.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
- * @Classname Cfg_Util
- * @Description  一些工具bean
- * @Date 2019/10/21 11:31
- * @Version 1.0
+ * 首页
  **/
 @Configuration
 public class Cfg_View extends WebMvcConfigurerAdapter {

@@ -1,4 +1,4 @@
-package com.test.activiti.activiti.config;
+package com.springactiviti.activiti.config;
 
 import org.activiti.engine.*;
 import org.activiti.engine.impl.cfg.ProcessEngineConfigurationImpl;
@@ -15,8 +15,6 @@ import javax.sql.DataSource;
 /**
  * @Classname Cfg_Activiti
  * @Description activiti工作流配置
- * @Date 2019/10/21 11:31
- * @Version 1.0
  **/
 @Configuration
 public class Cfg_Activiti {

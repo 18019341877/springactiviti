@@ -1,4 +1,4 @@
-package com.test.activiti.util;
+package com.springactiviti.util;
 
 
 /**

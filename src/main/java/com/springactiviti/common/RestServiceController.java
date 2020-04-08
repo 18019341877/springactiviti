@@ -1,4 +1,4 @@
-package com.test.activiti.common;
+package com.springactiviti.common;
 
 import org.springframework.web.bind.annotation.*;
 

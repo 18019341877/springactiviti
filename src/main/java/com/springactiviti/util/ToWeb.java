@@ -1,4 +1,4 @@
-package com.test.activiti.util;
+package com.springactiviti.util;
 
 import java.util.HashMap;
 import java.util.List;

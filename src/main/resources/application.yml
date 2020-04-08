@@ -14,8 +14,12 @@ spring:
     cache: false
   devtools:
     restart:
-      enabled: true  #设置开启热部署
-      #additional-paths: src/main/java #重启目录
-      #exclude: WEB-INF/**
+      enabled: false  #设置开启热部署
   freemarker:
     cache: false    #页面不加载缓存，修改即时生效
+
+logging:
+  level:
+    root: info
+  path: ./logs
+
