@@ -11,18 +11,13 @@ import org.activiti.engine.delegate.JavaDelegate;
  **/
 public class ServiceTask implements JavaDelegate {
 
-
     private Expression methodName;
 
     @Override
     public void execute(DelegateExecution execution) {
-
         String name = execution.getCurrentActivityName();
-
         try {
-
             System.out.println(name + "开始执行！");
-
             String taskmethodName = (String) methodName.getValue(execution);
             System.out.println("taskmethodName:" + taskmethodName);
             String over = (String)execution.getVariable("isover");
@@ -31,7 +26,6 @@ public class ServiceTask implements JavaDelegate {
                 execution.setVariable("isover", "不通过");
             }
             System.out.println(name + "serviceTask已经执行已经执行！");
-
         } catch (Exception e) {
             e.printStackTrace();
         }

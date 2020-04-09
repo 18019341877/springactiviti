@@ -1,7 +1,6 @@
 package com.springactiviti.domain.dao;
 
 import com.springactiviti.domain.entity.ActHiActinst;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -12,7 +11,6 @@ import java.util.List;
  * @author makejava
  * @since 2020-04-08 20:46:21
  */
-@Mapper
 public interface ActHiActinstDao {
 
     /**

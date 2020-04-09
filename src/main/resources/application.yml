@@ -1,5 +1,10 @@
+# 项目相关配置
+springproject:
+  # 名称
+  name: springactiviti
+
 server:
-  port: 8080
+  port: 7070
 security:
   basic:
     enabled: false
