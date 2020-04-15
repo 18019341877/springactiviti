@@ -111,10 +111,7 @@
     </dependencies>
 
     <build>
-
         <finalName>springactiviti</finalName>
-        <defaultGoal>compile</defaultGoal>
-
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
