@@ -2,6 +2,7 @@ package com.springactiviti.supportapply.controller;
 
 import com.springactiviti.util.AjaxResult;
 import com.springactiviti.util.LogBack;
+import com.springactiviti.util.StringUtils;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.activiti.engine.task.Task;
@@ -33,13 +34,18 @@ public class SupportApplyController {
     }
 
     @PostMapping("/lobourActiviti")
-    public AjaxResult lobourActiviti(@RequestParam("supApplyId") String supApplyId) {
+    public AjaxResult lobourActiviti(@RequestParam("supApplyId") String supApplyId,
+                                     @RequestParam("acstatus") String acstatus) {
         LogBack.info("手动审核：supApplyId = " + supApplyId);
-
+        LogBack.info("手动审核状态：acstatus = " + acstatus);
+        
         Task task = taskService.createTaskQuery().processInstanceBusinessKey(supApplyId)
                 .taskAssignee("admin")
                 .singleResult();
         if(task!=null){
+            if(StringUtils.isNotEmpty(acstatus)){
+                taskService.setVariable(task.getId(),"acstatus",acstatus);
+            }
             taskService.complete(task.getId());
         }
 

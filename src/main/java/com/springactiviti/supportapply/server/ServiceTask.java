@@ -53,10 +53,10 @@ public class ServiceTask implements JavaDelegate {
                 }
                 LogBack.info(name + "serviceTask已经执行完毕！");
             } else {
-                execution.setVariable("acstatus", "");
+                execution.setVariable("acstatus", "不通过");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            execution.setVariable("acstatus", "不通过");
         }
 
     }
