@@ -1,5 +1,7 @@
 package com.springactiviti.supportapply.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.springactiviti.util.AjaxResult;
 import com.springactiviti.util.LogBack;
 import com.springactiviti.util.StringUtils;
@@ -10,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @Author Chb
@@ -38,15 +42,15 @@ public class SupportApplyController {
                                      @RequestParam("acstatus") String acstatus) {
         LogBack.info("手动审核：supApplyId = " + supApplyId);
         LogBack.info("手动审核状态：acstatus = " + acstatus);
-        
-        Task task = taskService.createTaskQuery().processInstanceBusinessKey(supApplyId)
-                .taskAssignee("admin")
-                .singleResult();
-        if(task!=null){
-            if(StringUtils.isNotEmpty(acstatus)){
-                taskService.setVariable(task.getId(),"acstatus",acstatus);
+
+        List<Task> task = taskService.createTaskQuery().processInstanceBusinessKey(supApplyId)
+                .taskAssignee("admin").list();
+        if (task != null && !task.isEmpty()) {
+            String taskid = task.get(task.size() - 1).getId();
+            if (StringUtils.isNotEmpty(acstatus)) {
+                taskService.setVariable(taskid, "acstatus", acstatus);
             }
-            taskService.complete(task.getId());
+            taskService.complete(taskid);
         }
 
         return AjaxResult.success();
